@@ -4,10 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import { red, blueGrey } from '@material-ui/core/colors';
+import { ThemeProvider } from '@material-ui/styles';
+import { BrowserRouter as Router } from "react-router-dom"
+
+const theme = createMuiTheme({
+  palette: {
+    primary: red,
+    secondry: blueGrey
+  },
+});
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <React.StrictMode>
+      <Router>
+        <App />
+      </Router>
+    </React.StrictMode>,
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
